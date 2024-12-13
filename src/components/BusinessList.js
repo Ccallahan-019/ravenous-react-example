@@ -1,13 +1,12 @@
 import Business from "./Business";
 import './css/businessStyles.css'
 
-function BusinessList() {
+function BusinessList(props) {
     return (
         <div className="businessList">
-            <Business />
-            <Business />
-            <Business />
-            <Business />
+            {props.businesses.map(business =>
+                <Business business={business} />
+            )}
         </div>
     );
 };
