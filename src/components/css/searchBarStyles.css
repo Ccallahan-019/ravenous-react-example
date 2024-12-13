@@ -1,0 +1,78 @@
+.searchBarContainer {
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.searchBarBackground {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../assets/cutting_board.jpg');
+}
+
+.searchBarOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    opacity: 75%;
+}
+
+.searchBarContent {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;  
+}
+
+.searchOptions {
+    display: flex;
+    gap: 8px;
+    padding: 4px;
+    border-bottom: 1px solid white;
+}
+
+.searchOption {
+    width: 150px;
+    font-family: var(--main-font);
+    border: none;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+}
+
+.searchOption:hover {
+    cursor: pointer;
+}
+
+.searchInputs {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    width: 70%;
+}
+
+.searchInput {
+    padding: 8px 16px;
+    flex-grow: 1;
+    font-family: var(--main-font);
+    border-radius: 6px;
+
+}
+
+.searchButton {
+    appearance: none;
+    padding: 10px 20px;
+    font-family: var(--main-font);
+    color: white;
+    background-color: burlywood;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+}
