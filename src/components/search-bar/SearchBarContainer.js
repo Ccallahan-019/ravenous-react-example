@@ -6,21 +6,26 @@ function SearchBarContainer() {
     const [location, setLocation] = useState(null);
     const [sortOption, setSortOption] = useState(null);
 
-    const onOptionClickHandler = (event) => {
+    // function to handle search option choice
+    const handleClick = (event) => {
         setSortOption(event.target.value)
     };
 
-    const onSearchTermChangeHandler = (event) => {
+    // function to handle changes in search term input
+    const handlerSearchTermChange = (event) => {
         setSearchTerm(event.target.value)
     };
 
-    const onLocationChangeHandler = (event) => {
+    // function to handle changes in location input
+    const handleLocationChange = (event) => {
         setLocation(event.target.value)
     };
 
-    const onSearchHandler = (event, searchTerm, location, sortOption) => {
+    // function to handle search submit
+    const handleSearch = (event, searchTerm, location, sortOption) => {
         event.preventDefault();
 
+        // check if every param has been set before searching
         if (searchTerm && location && sortOption) {
             console.log(`Searching Yelp with ${searchTerm}, ${location}, ${sortOption}`);
         } else {
@@ -33,10 +38,10 @@ function SearchBarContainer() {
             searchTerm={searchTerm}
             location={location}
             sortOption={sortOption}
-            onOptionClick={onOptionClickHandler}
-            onSearchTermChange={onSearchTermChangeHandler}
-            onLocationChange={onLocationChangeHandler}
-            onSearch={onSearchHandler}
+            onOptionClick={handleClick}
+            onSearchTermChange={handlerSearchTermChange}
+            onLocationChange={handleLocationChange}
+            onSearch={handleSearch}
         />
     );
 };
