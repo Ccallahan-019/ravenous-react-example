@@ -31,14 +31,14 @@
     gap: 30px;  
 }
 
-.searchOptions {
+.sortOptions {
     display: flex;
     gap: 8px;
     padding: 4px;
     border-bottom: 1px solid white;
 }
 
-.searchOption {
+.sortOption {
     width: 150px;
     font-family: var(--main-font);
     border: none;
@@ -47,8 +47,12 @@
     font-weight: bold;
 }
 
-.searchOption:hover {
+.sortOption:hover {
     cursor: pointer;
+}
+
+.activeSortOption {
+    color: burlywood;
 }
 
 .searchInputs {
@@ -63,7 +67,6 @@
     flex-grow: 1;
     font-family: var(--main-font);
     border-radius: 6px;
-
 }
 
 .searchButton {

@@ -10,7 +10,6 @@ export const businesses = [
         rating: 4.5,
         reviewCount: 90
     },
-
     {
         imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
         name: 'MarginOtto Pizzeria v2.0',
