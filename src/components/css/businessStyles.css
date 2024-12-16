@@ -1,82 +1,102 @@
 .businessList {
-  padding: 80px 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 36px;
-  column-gap: 16px;
-  justify-items: center;
+  grid-template-columns: 100vw;
 }
 
 .businessContainer {
-    max-width: 280px;
-    display: flex;
-    flex-direction: column;
-
-  }
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
   
-  .businessHeader {
-    display: flex;
-    flex-direction: column;
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 6px;
-    font-weight: bold;
-    flex-grow: 1;
+.businessHeader {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.businessImage {
+  aspect-ratio: 9 / 8;
+  border-radius: 4px;
+}
+
+.businessName {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.businessInformation {
+  display: flex;
+  flex-direction: row;
+}
+
+.businessAddress {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.businessDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  flex-grow: 1;
+}
+
+.businessDetails {
+  text-align: end;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.businessDetails.reviewCount {
+  color: black;
+  font-weight: normal;
+}
+
+@media only screen and (min-width: 375px) {
+  .businessContainer {
+    padding: 20px 30px;
   }
-  
-  .businessImage {
-    aspect-ratio: 9 / 8;
-    max-height: 300px;
-    margin-bottom: 6px;
-    border-radius: 4px;
+}
+
+@media only screen and (min-width: 425px) {
+  .businessList {
+    margin: 30px 0;
+    grid-template-columns: repeat(2, 50vw);
   }
 
-  .businessName {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-  }
-
-  .businessInformation {
-    display: flex;
-    flex-direction: row;
-    padding: 0 4px;
-  }
-
-  .businessAddress {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-  }
-
-  .businessDetailsContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    flex-grow: 1;
-  }
-
-  .businessDetails {
-    text-align: end;
-    font-weight: bold;
-    color: var(--accent-color);
-  }
-
-  .businessDetails.reviewCount {
-    color: black;
-    font-weight: normal;
-  }
+  .businessContainer {
+    padding: 20px 20px;
     
-  @media only screen and (max-width: 1024px) {
-    .businessList {
-      padding: 60px 40px;
-      grid-template-columns: 1fr 1fr;
+  }
+}
 
-    }
+@media only screen and (min-width: 768px) {
+  .businessList {
+    grid-template-columns: repeat(3, 33.333vw);
   }
 
-  @media only screen and (max-width: 768px) {
-    .businessList {
-      padding: 80px 20px;
-    }
+  .businessContainer {
+    padding: 20px 30px;
   }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .businessList {
+    grid-template-columns: repeat(8, 12.5vw);
+  }
+
+  .businessContainer {
+    grid-column: span 2;
+  }
+
+  .businessContainer:nth-child(3n+1) {
+    grid-column: 2 / span 2;
+  }
+}
