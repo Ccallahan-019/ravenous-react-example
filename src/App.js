@@ -8,10 +8,12 @@ function App() {
   const [businessData, setBusinessData] = useState(null);
   const [searching, setSearching] = useState(false);
 
+  // function to handle transition between search and data retrieval completion
   const handleSearching = () => {
     setSearching(true);
   }
 
+  // function to handle data retrieval completion
   const handleSearch = (data) => {
     setBusinessData(data);
     setSearching(false);

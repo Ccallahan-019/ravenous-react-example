@@ -28,7 +28,7 @@ function SearchBarContainer({ onSearch, onSearching }) {
     const handleSearch = (event, location) => {
         event.preventDefault();
 
-        // check if every param has been set before searching
+        // check if location param has been set before searching
         if (location) {
             setSearched(true);
             setSearching(true);
@@ -36,7 +36,8 @@ function SearchBarContainer({ onSearch, onSearching }) {
             console.log('Search must include a location. Please try again.')
         };
     };
-
+    
+    // effect for fetching data
     useEffect(() => {
         let ignore = false;
         const fetchData = async () => {
@@ -47,6 +48,7 @@ function SearchBarContainer({ onSearch, onSearching }) {
             }
         }
 
+        // prevent data fetch before user has initiated first search
         if (searched) {
             fetchData();
         }
@@ -55,7 +57,7 @@ function SearchBarContainer({ onSearch, onSearching }) {
             ignore = true;
             setSearching(false);
         }
-    }, [searching, sortOption]);
+    }, [searching, sortOption]); // call effect when user searches or changes sort option
 
     return (
         <SearchBar
