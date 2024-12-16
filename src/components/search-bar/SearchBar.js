@@ -17,7 +17,7 @@ function SearchBar({
             <div className='searchBarOverlay'></div>
             <form
                 className='searchBarContent'
-                onSubmit={(event) => {onSearch(event, searchTerm, location, sortOption)}}
+                onSubmit={(event) => {onSearch(event, location)}}
             >
                 <div className='sortOptions'>
                     <button
@@ -30,16 +30,16 @@ function SearchBar({
                     </button>
                     <button
                         type='button'
-                        className={`sortOption ${sortOption === 'highest_rated' ? 'activeSortOption' : ''}`}
-                        value={'highest_rated'}
+                        className={`sortOption ${sortOption === 'rating' ? 'activeSortOption' : ''}`}
+                        value={'rating'}
                         onClick={onOptionClick}
                     >
                         Highest Rated
                     </button>
                     <button
                         type='button'
-                        className={`sortOption ${sortOption === 'most_reviewed' ? 'activeSortOption' : ''}`}
-                        value={'most_reviewed'}
+                        className={`sortOption ${sortOption === 'review_count' ? 'activeSortOption' : ''}`}
+                        value={'review_count'}
                         onClick={onOptionClick}
                     >
                         Most Reviewed

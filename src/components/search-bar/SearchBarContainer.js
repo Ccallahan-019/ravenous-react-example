@@ -1,10 +1,13 @@
 import SearchBar from './SearchBar';
-import { useState } from 'react';
+import { fetchBusinesses } from '../../utils/yelp-api';
+import { useEffect, useState } from 'react';
 
-function SearchBarContainer() {
+function SearchBarContainer({ onSearch, onSearching }) {
     const [searchTerm, setSearchTerm] = useState(null);
     const [location, setLocation] = useState(null);
     const [sortOption, setSortOption] = useState(null);
+    const [searched, setSearched] = useState(false);
+    const [searching, setSearching] = useState(false);
 
     // function to handle search option choice
     const handleClick = (event) => {
@@ -22,16 +25,37 @@ function SearchBarContainer() {
     };
 
     // function to handle search submit
-    const handleSearch = (event, searchTerm, location, sortOption) => {
+    const handleSearch = (event, location) => {
         event.preventDefault();
 
         // check if every param has been set before searching
-        if (searchTerm && location && sortOption) {
-            console.log(`Searching Yelp with ${searchTerm}, ${location}, ${sortOption}`);
+        if (location) {
+            setSearched(true);
+            setSearching(true);
         } else {
-            console.log('Search must include a search term, location, and sort option. Please try again.')
+            console.log('Search must include a location. Please try again.')
         };
     };
+
+    useEffect(() => {
+        let ignore = false;
+        const fetchData = async () => {
+            onSearching();
+            const data = await fetchBusinesses(searchTerm, location, sortOption);
+            if (!ignore) {
+                onSearch(data);
+            }
+        }
+
+        if (searched) {
+            fetchData();
+        }
+
+        return () => {
+            ignore = true;
+            setSearching(false);
+        }
+    }, [searching, sortOption]);
 
     return (
         <SearchBar

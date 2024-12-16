@@ -1,6 +1,6 @@
 .searchBarContainer {
     position: relative;
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@
 }
 
 .activeSortOption {
-    color: burlywood;
+    color: var(--accent-color);
 }
 
 .searchInputs {
@@ -74,7 +74,7 @@
     padding: 10px 20px;
     font-family: var(--main-font);
     color: white;
-    background-color: burlywood;
+    background-color: var(--accent-color);
     font-weight: bold;
     font-size: 16px;
     border-radius: 6px;
@@ -82,4 +82,5 @@
 
 .searchButton:hover {
     cursor: pointer;
+    background-color: rgb(180, 136, 78);
 }

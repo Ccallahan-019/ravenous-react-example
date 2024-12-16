@@ -1,10 +1,10 @@
 import Business from "./Business";
-import './css/businessStyles.css';
+import '../css/businessStyles.css';
 
-function BusinessList(props) {
+function BusinessList({ businesses }) {
     return (
         <div className="businessList">
-            {props.businesses.map((business, index) =>
+            {businesses.map((business, index) =>
                 <Business key={index} business={business} />
             )}
         </div>

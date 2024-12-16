@@ -13,5 +13,14 @@ body {
     text-align: center;
     color: white;
     font-size: 26px;
-    background-color: burlywood;
+    background-color: var(--accent-color);
+  }
+
+  .placeholder {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .hidden {
+    display: none;
   }
