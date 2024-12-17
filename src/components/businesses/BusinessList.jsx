@@ -1,5 +1,5 @@
 import Business from "./Business";
-import '../css/businessStyles.css';
+import '../../styles/businessStyles.css';
 
 function BusinessList({ businesses }) {
     return (

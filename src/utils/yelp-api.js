@@ -1,4 +1,4 @@
-const apiKey = process.env.REACT_APP_YELP_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_YELP_API_KEY;
 const baseURL = 'https://api.yelp.com/v3/';
 
 // fetch data from yelp API using input from user

@@ -1,7 +1,6 @@
-import '../css/searchBarStyles.css';
+import '../../styles/searchBarStyles.css';
 
 function SearchBar({
-    searchTerm,
     location,
     sortOption,
     onOptionClick,

@@ -1,5 +1,3 @@
-import './App.css';
-import './variables.css';
 import BusinessList from './components/businesses/BusinessList';
 import SearchBarContainer from './components/search-bar/SearchBarContainer';
 import { useState } from 'react';
