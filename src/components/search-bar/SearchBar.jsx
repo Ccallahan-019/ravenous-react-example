@@ -1,6 +1,7 @@
 import '../../styles/searchBarStyles.css';
 
 function SearchBar({
+    searchTerm,
     location,
     sortOption,
     onOptionClick,
@@ -51,6 +52,7 @@ function SearchBar({
                         id='business'
                         name='business'
                         placeholder='Search Businesses'
+                        value={searchTerm}
                         onChange={onSearchTermChange}
                     />
                     <input
@@ -59,6 +61,7 @@ function SearchBar({
                         id='location'
                         name='location'
                         placeholder='Where?'
+                        value={location}
                         onChange={onLocationChange}
                     />
                 </div>

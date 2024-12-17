@@ -7,6 +7,7 @@ import { useState } from 'react';
 function Home() {
     const [businessData, setBusinessData] = useState(null);
     const [searching, setSearching] = useState(false);
+    const [location, setLocation] = useState('New York, NY');
   
     // function to handle transition between search and data retrieval completion
     const handleSearching = () => {
@@ -18,19 +19,24 @@ function Home() {
       setBusinessData(data);
       setSearching(false);
     }
+
+    const handleLocationChange = (location) => {
+        setLocation(location);
+    }
   
     return (
       <div className="App">
         <h1 className='title'>ravenous</h1>
-        <SearchBarContainer  onSearch={handleSearch} onSearching={handleSearching}  />
-        <div className={`placeholder ${(!searching & !businessData) ? '': 'hidden'}`}>
-          Search for restaurants to see results!
-        </div>
+        <SearchBarContainer
+            onSearch={handleSearch}
+            onSearching={handleSearching}
+            onLocationChange={handleLocationChange}
+        />
         <div className={`placeholder ${searching ? '': 'hidden'}`}>
-          Retrieving your search results...
+          Retrieving search results...
         </div>
         {businessData && (
-          <BusinessList businesses={businessData} />
+          <BusinessList businesses={businessData} location={location} />
         )}
       </div>
     );

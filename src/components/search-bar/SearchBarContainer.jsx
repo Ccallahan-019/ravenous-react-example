@@ -2,26 +2,25 @@ import SearchBar from './SearchBar';
 import { fetchBusinesses } from '../../utils/yelp-api';
 import { useEffect, useState } from 'react';
 
-function SearchBarContainer({ onSearch, onSearching }) {
-    const [searchTerm, setSearchTerm] = useState(null);
-    const [location, setLocation] = useState(null);
+function SearchBarContainer({ onSearch, onSearching, onLocationChange }) {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [location, setLocation] = useState('New York, NY');
     const [sortOption, setSortOption] = useState(null);
-    const [searched, setSearched] = useState(false);
     const [searching, setSearching] = useState(false);
 
     // function to handle search option choice
     const handleClick = (event) => {
-        setSortOption(event.target.value)
+        setSortOption(event.target.value);
     };
 
     // function to handle changes in search term input
     const handlerSearchTermChange = (event) => {
-        setSearchTerm(event.target.value)
+        setSearchTerm(event.target.value);
     };
 
     // function to handle changes in location input
     const handleLocationChange = (event) => {
-        setLocation(event.target.value)
+        setLocation(event.target.value);
     };
 
     // function to handle search submit
@@ -29,12 +28,11 @@ function SearchBarContainer({ onSearch, onSearching }) {
         event.preventDefault();
 
         // check if location param has been set before searching
-        if (location) {
-            setSearched(true);
-            setSearching(true);
-        } else {
-            console.log('Search must include a location. Please try again.')
+        if (!location) {
+            setLocation('New York, NY');
         };
+
+        setSearching(true);
     };
     
     // effect for fetching data
@@ -45,13 +43,11 @@ function SearchBarContainer({ onSearch, onSearching }) {
             const data = await fetchBusinesses(searchTerm, location, sortOption);
             if (!ignore) {
                 onSearch(data);
+                onLocationChange(location);
             }
         }
 
-        // prevent data fetch before user has initiated first search
-        if (searched) {
-            fetchData();
-        }
+        fetchData();
 
         return () => {
             ignore = true;
